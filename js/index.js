@@ -67,6 +67,7 @@ function getDataFromLocalStorage() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Load and display saved data from localStorage
   const savedData = getDataFromLocalStorage();
   savedData.forEach(function (data) {
     const blockHTML = createBlock(data);
@@ -96,7 +97,7 @@ button.addEventListener('click', function (event) {
 
   if (!isValid) return;
 
-  const work = typeofwork
+  const work = typeofwork;
   const data = {
     imageSrc: 'https://picsum.photos/200',
     companyName: manage.value,
@@ -113,4 +114,9 @@ button.addEventListener('click', function (event) {
 
   const blockHTML = createBlock(data);
   card.innerHTML += blockHTML;
+  
 });
+window.onload = function() {
+  localStorage.clear();
+};
+
