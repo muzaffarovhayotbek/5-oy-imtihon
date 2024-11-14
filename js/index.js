@@ -73,9 +73,7 @@ button.addEventListener('click', function (event) {
               <li>${data.fromlocation}</li>
             </ul> 
           </div>
-              <div class="carddelete">
-    <span>delete</span>
-
+   
       </div>
         </div>
         
