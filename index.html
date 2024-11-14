@@ -1,120 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/normalize.css" />
-    <link rel="stylesheet" href="./css/fonts.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <title>5-oy imtihon</title>
-  </head>
 
-  <body>
-    <div class="main">
-      <img src="./images/main.jpg" alt="" />
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/normalize.css" />
+  <link rel="stylesheet" href="./css/fonts.css" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <title>5-oy imtihon</title>
+</head>
 
-    <!-- form section -->
+<body>
+  <div class="main">
+    <img src="./images/main.jpg" alt="" />
+  </div>
 
-    <div class="container form__container">
-      <h1>vakansiya ma'lumotlarini kiriting</h1>
-      <form id="form">
-        <label>Logotip URl</label>
+  <!-- form section -->
 
-        <div class="form-first">
-          <input
-            class="field"
-            id="logo"
-            type="text"
-            required
-            placeholder="Logotip URl manzilini kiriting"
-          />
-        </div>
+  <div class="container form__container">
+    <h1>vakansiya ma'lumotlarini kiriting</h1>
+    <form id="form">
+      <label>Logotip URl</label>
 
-        <div class="form-two">
-          <label>Kompaniya nomi</label>
-          <input id="manage" type="text" required placeholder="manage" />
-        </div>
-
-        <div class="tag">
-          <input id="check" type="checkbox" />
-          <label id="tagNew">New</label>
-          <input type="checkbox" />
-          <label>Featured</label>
-        </div>
-
-        <div class="dev">
-          <label>Lavozim</label>
-          <input
-            id="fullstack"
-            type="text"
-            required
-            placeholder="Fullsack Devolper..."
-          />
-        </div>
-
-        <div class="select">
-          <div class="form-group">
-            <label>Vaqt</label>
-            <select id="time">
-              <option>Tanlang</option>
-              <option>1d ago</option>
-              <option>2d ago</option>
-              <option>3d ago</option>
-              <option>4d ago</option>
-              <option>5d ago</option>
-              <option>6d ago</option>
-              <option>1w ago</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label id="typeofwork">Ish turi</label>
-            <select id="work">
-              <option>Tanlang</option>
-              <option>Full time</option>
-              <option>Part time</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label id="location">Joylashuv</label>
-            <select class="fromlocation">
-              <option>Tanlang</option>
-              <option>USA only</option>
-              <option>Worldwide</option>
-              <option>UK only</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="forms">
-          <div class="forms-title">
-            <h2>Konikmalar</h2>
-          </div>
-
-          <div id="forms">
-            <input type="checkbox" />
-            <h4>Fullstack</h4>
-            <input type="checkbox" />
-            <h4>Python</h4>
-            <input type="checkbox" />
-            <h4>Midweight</h4>
-            <input type="checkbox" />
-            <h4>React</h4>
-          </div>
-        </div>
-
-        <button class="button">Saqlash</button>
-      </form>
-    </div>
-    <!-- form end -->
-
-    <div class="card">
-    
-
+      <div class="form-first">
+        <input class="field" id="logo" type="text" required placeholder="Logotip URl manzilini kiriting" />
       </div>
-      
-    <script type="module" src="./js/index.js"></script>
-  </body>
+
+      <div class="form-two">
+        <label>Kompaniya nomi</label>
+        <input id="manage" type="text" required placeholder="manage" />
+      </div>
+
+      <div class="tag">
+        <input id="check" type="checkbox" />
+        <label id="tagNew">New</label>
+        <input type="checkbox" />
+        <label>Featured</label>
+      </div>
+
+      <div class="dev">
+        <label>Lavozim</label>
+        <input id="fullstack" type="text" required placeholder="Fullsack Devolper..." />
+      </div>
+
+      <div class="select">
+        <div class="form-group">
+          <label>Vaqt</label>
+          <select id="time">
+            <option>Tanlang</option>
+            <option>1d ago</option>
+            <option>2d ago</option>
+            <option>3d ago</option>
+            <option>4d ago</option>
+            <option>5d ago</option>
+            <option>6d ago</option>
+            <option>1w ago</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label id="typeofwork">Ish turi</label>
+          <select id="work">
+            <option>Tanlang</option>
+            <option>Full time</option>
+            <option>Part time</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label id="location">Joylashuv</label>
+          <select class="fromlocation">
+            <option>Tanlang</option>
+            <option>USA only</option>
+            <option>Worldwide</option>
+            <option>UK only</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="forms">
+        <div class="forms-title">
+          <h2>Konikmalar</h2>
+        </div>
+
+        <div id="forms">
+          <input type="checkbox" />
+          <h4>Fullstack</h4>
+          <input type="checkbox" />
+          <h4>Python</h4>
+          <input type="checkbox" />
+          <h4>Midweight</h4>
+          <input type="checkbox" />
+          <h4>React</h4>
+        </div>
+      </div>
+
+      <button class="button">Saqlash</button>
+    </form>
+  </div>
+  <!-- form end -->
+
+  <div class="card">
+
+
+  </div>
+
+  <script type="module" src="./js/index.js"></script>
+</body>
+
 </html>

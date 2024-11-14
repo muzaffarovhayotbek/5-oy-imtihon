@@ -197,6 +197,7 @@ button:hover {
   background-color: white;
   border-radius: 5px;
   margin: 0 auto;
+
 }
 
 .card-img img {
@@ -238,6 +239,7 @@ button:hover {
   font-size: 22px;
   font-weight: 700;
   line-height: 24px;
+
   color: #2B3939;
   margin-top: 10px;
 }
