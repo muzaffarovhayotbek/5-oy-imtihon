@@ -67,7 +67,6 @@ function getDataFromLocalStorage() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Load and display saved data from localStorage
   const savedData = getDataFromLocalStorage();
   savedData.forEach(function (data) {
     const blockHTML = createBlock(data);
@@ -97,14 +96,14 @@ button.addEventListener('click', function (event) {
 
   if (!isValid) return;
 
-  const work = typeofwork; // Ensure work is defined
+  const work = typeofwork
   const data = {
     imageSrc: 'https://picsum.photos/200',
     companyName: manage.value,
     tagNew: tagNew.value,
     button: fullstack.value,
     time: time.value,
-    work: work.value, // Ensure work value is used correctly
+    work: work.value,
     fromlocation: fromlocation.value,
   };
 
