@@ -97,14 +97,14 @@ button.addEventListener('click', function (event) {
 
   if (!isValid) return;
 
-  const work = typeofwork;
+  const work = typeofwork; // Ensure work is defined
   const data = {
     imageSrc: 'https://picsum.photos/200',
     companyName: manage.value,
     tagNew: tagNew.value,
     button: fullstack.value,
     time: time.value,
-    work: work.value,
+    work: work.value, // Ensure work value is used correctly
     fromlocation: fromlocation.value,
   };
 
@@ -114,9 +114,4 @@ button.addEventListener('click', function (event) {
 
   const blockHTML = createBlock(data);
   card.innerHTML += blockHTML;
-  
 });
-window.onload = function() {
-  localStorage.clear();
-};
-
