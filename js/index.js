@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const deleteButton = document.querySelector('.delete-bnt');
   const cardbutton = document.querySelector('.card-button');
 
+  // Submit event listener
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-
     if (validate()) {
       saveCard();
     }
@@ -60,9 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     let cards = JSON.parse(localStorage.getItem('cards')) || [];
-
     cards.push(card);
-
     localStorage.setItem('cards', JSON.stringify(cards));
 
     displaySavedCards();
@@ -80,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <h2>${savedCard.manage}</h2>
           <h3>${savedCard.fullstack}</h3>
           <ul>
-            <li>${savedCard.time}</li>  
+            <li>${savedCard.time}</li>
             <li>${savedCard.work}</li>
             <li>${savedCard.location}</li>
           </ul>
@@ -92,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const clearCards = document.querySelectorAll('.clear-card');
     clearCards.forEach(clear => {
-      clear.addEventListener('click', function (event) {
+      clear.addEventListener('click', function () {
         let isClear = confirm("Rostan ham cardni o'chirmoqchimisiz?");
         if (isClear) {
           let cards = JSON.parse(localStorage.getItem('cards')) || [];
@@ -102,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
           displaySavedCards();
         }
       });
-    }); a
+    });
   }
 
   displaySavedCards();
