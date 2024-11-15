@@ -191,14 +191,15 @@ button:hover {
 }
 
 .card {
-  align-items: center;
   width: 1110px;
-  display: flex;
-  gap: 24px;
-  padding: 32px 40px 31px 40px;
-  background-color: white;
   border-radius: 5px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 15px 20px -5px #0D718226;
+  padding: 32px 40px 31px 40px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .card-img img {
@@ -207,76 +208,50 @@ button:hover {
   border-radius: 50%;
 }
 
-.card-titles {
-  display: flex;
-  gap: 15px;
-}
-
 .card-titles h2 {
-  font-family: "League Spartan";
+  display: flex;
+  font-family: 'League Spartan';
   font-size: 18px;
   font-weight: 700;
   line-height: 16.56px;
-  text-align: left;
+  margin-bottom: 10px;
   color: #5CA5A5;
-}
-
-.card-first-btn {
-  padding: 7px 8px 3px 8px;
-  border: none;
-  border-radius: 12px;
-  background-color: #5ca5a5;
-  font-family: 'League Spartan';
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 14px;
-  color: #ffffff;
 }
 
 .btn {
   display: flex;
 }
 
-.card-titles-title h2 {
+.card-titles h2 {
   font-family: 'League Spartan';
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 24px;
-
-  color: #2b3939;
-  margin-top: 10px;
+  line-height: 16.56px;
+  color: #5CA5A5;  
 }
+.card-titles h3{
+  font-family: 'League Spartan';
+font-size: 22px;
+font-weight: 700;
+line-height: 24px;
+  color: #2B3939;
 
-.ul {
-  align-items: center;
-  gap: 41px;
-  display: flex;
+}
+.card-titles ul{
   margin-top: 7px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
-
-.ul li {
+.card-titles li {
+  color: #7C8F8F;
   font-family: 'League Spartan';
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
-  color: #7c8f8f;
-}
 
-.btn {
-  display: flex;
-}
 
-.card-btn {
-  padding: 7px 9px 3px 8px;
-  border: none;
-  border-radius: 12px;
-  background-color: #2b3939;
-  font-family: 'League Spartan';
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 14px;
-  color: #ffffff;
-  text-transform: uppercase;
 }
 
 .delete-bnt {

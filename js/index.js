@@ -1,5 +1,3 @@
-// JavaScript to handle form submission and display saved data
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('form');
   const logoInput = document.getElementById('logo');
@@ -11,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   const savedCards = document.querySelector('.card');
   const deleteButton = document.querySelector('.delete-bnt');
+  const cardbutton = document.querySelector('.card-button');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -21,16 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   deleteButton.addEventListener('click', () => {
-    if (confirm('Hamma ma\'lumotlarni o\'chirishni istaysizmi?')) {
+    if (confirm("Hamma ma'lumotlarni o'chirishni istaysizmi?")) {
       localStorage.clear();
-      displaySavedCards();
+      savedCards.innerHTML = '';
     }
   });
-  
 
   function validate() {
-    if (!logoInput.value || !manageInput.value || !fullstackInput.value || timeSelect.value === "Tanlang" || workSelect.value === "Tanlang" || locationSelect.value === "Tanlang") {
-      alert('Barcha maydonlarni to\'ldirish zarur!');
+    if (
+      !logoInput.value ||
+      !manageInput.value ||
+      !fullstackInput.value ||
+      timeSelect.value === 'Tanlang' ||
+      workSelect.value === 'Tanlang' ||
+      locationSelect.value === 'Tanlang'
+    ) {
+      alert("Barcha maydonlarni to'ldirish zarur!");
       return false;
     }
     return true;
@@ -59,12 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="card-titles">
           <h2>${savedCard.manage}</h2>
-          <h2>${savedCard.fullstack}</h2>
-          <h2>${savedCard.time}</h2>
+          <h3>${savedCard.fullstack}</h3>
+         <ul>
+          <li>${savedCard.time}</li>
+          <li>${savedCard.work}</li>
+          <li>${savedCard.location}</li>
+         </ul>
         </div>
-        <div class="btn">
-          <button class="card-first-btn">Saqlash</button>
-        </div>
+      
       `;
     }
   }
