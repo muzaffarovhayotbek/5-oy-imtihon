@@ -227,23 +227,26 @@ button:hover {
   font-size: 18px;
   font-weight: 700;
   line-height: 16.56px;
-  color: #5CA5A5;  
+  color: #5CA5A5;
 }
-.card-titles h3{
+
+.card-titles h3 {
   font-family: 'League Spartan';
-font-size: 22px;
-font-weight: 700;
-line-height: 24px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 24px;
   color: #2B3939;
 
 }
-.card-titles ul{
+
+.card-titles ul {
   margin-top: 7px;
   list-style: none;
   display: flex;
   align-items: center;
   gap: 30px;
 }
+
 .card-titles li {
   color: #7C8F8F;
   font-family: 'League Spartan';
@@ -265,4 +268,47 @@ line-height: 24px;
   margin-top: 10px;
   margin-left: 1200px;
   margin-bottom: 20px;
+}
+
+.button-btn {
+  position: relative;
+  margin-left: 480px;
+  bottom: 50px;
+  padding: 5px 10px 3px 9px;
+  border: none;
+  border-radius: 4px;
+  background-color: #EFF6F6;
+  font-family: 'League Spartan';
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #5CA5A5;
+}
+
+.clear-card {
+
+  position: relative;
+  align-items: center;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  left: 250px;
+  bottom: 50px;
+  background-color: blue;
+  color: white;
+}
+
+button,
+.button,
+.first-btn,
+.two-btn {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover,
+.button:hover,
+.first-btn:hover,
+.two-btn:hover {
+  transform: scale(1.05);
+  background-color: #3498db;
 }
