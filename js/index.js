@@ -27,7 +27,7 @@ checkboxes.forEach((checkbox) => {
 
 export function validate(field) {
   if (field.value.trim().length < 5) {
-    alert('URL manzil xato')
+    alert('Logotip URL manzili hato: URL manzil https bilan boshlanadi')
     return false;
   }
   return true;
