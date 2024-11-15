@@ -69,6 +69,7 @@ function getDataFromLocalStorage() {
 
 document.addEventListener('DOMContentLoaded', function () {
   const savedData = getDataFromLocalStorage();
+  card.innerHTML = '';  // cardni tozalash
   savedData.forEach(function (data) {
     const blockHTML = createBlock(data);
     card.innerHTML += blockHTML;
@@ -142,3 +143,5 @@ deletebnt.addEventListener('click', function (event) {
     localStorage.removeItem('datas');
   }
 });
+
+
