@@ -11,6 +11,7 @@ const card = document.querySelector('.card');
 const typeofwork = document.querySelector('#typeofwork');
 const tagNew = document.querySelector('#tagNew');
 const fromlocation = document.querySelector('.fromlocation');
+const deletebnt = document.querySelector('.delete-bnt')
 
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', () => {
@@ -52,9 +53,7 @@ function createBlock(data) {
             <li>${data.fromlocation}</li>
           </ul> 
         </div>
-        <div class="carddelete">
-          <span>delete</span>
-        </div>
+  
       </div>
     </div>
   `;
@@ -115,4 +114,30 @@ button.addEventListener('click', function (event) {
 
   const blockHTML = createBlock(data);
   card.innerHTML += blockHTML;
+});
+
+deletebnt.addEventListener('click', function (event) {
+  let isDelete = confirm('Rostan ham barcha ma`lumotlarni ochirmoqchimisiz?');
+
+  if (isDelete) {
+    const checkboxes = document.querySelectorAll('.tag input[type="checkbox"]');
+    const time = document.querySelector('#time');
+    const typeofwork = document.querySelector('#typeofwork');
+    const fromlocation = document.querySelector('.fromlocation');
+
+    fields.forEach(function (field) {
+      field.value = '';
+    });
+    checkboxes.forEach(function (checkbox) {
+      checkbox.checked = false;
+    });
+    time.value = 'Tanlang';
+    typeofwork.value = 'Tanlang';
+    fromlocation.value = 'Tanlang';
+
+    const card = document.querySelector('.card');
+    card.innerHTML = '';
+
+    localStorage.removeItem('datas');
+  }
 });

@@ -197,7 +197,6 @@ button:hover {
   background-color: white;
   border-radius: 5px;
   margin: 0 auto;
-
 }
 
 .card-img img {
@@ -214,20 +213,19 @@ button:hover {
   font-size: 18px;
   font-weight: 700;
   line-height: 16.56px;
-  color: #5CA5A5;
+  color: #5ca5a5;
 }
 
 .card-first-btn {
   padding: 7px 8px 3px 8px;
   border: none;
   border-radius: 12px;
-  background-color: #5CA5A5;
+  background-color: #5ca5a5;
   font-family: 'League Spartan';
   font-size: 14px;
   font-weight: 700;
   line-height: 14px;
-  color: #FFFFFF;
-
+  color: #ffffff;
 }
 
 .btn {
@@ -240,7 +238,7 @@ button:hover {
   font-weight: 700;
   line-height: 24px;
 
-  color: #2B3939;
+  color: #2b3939;
   margin-top: 10px;
 }
 
@@ -249,7 +247,6 @@ button:hover {
   gap: 41px;
   display: flex;
   margin-top: 7px;
-
 }
 
 .ul li {
@@ -257,7 +254,7 @@ button:hover {
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
-  color: #7C8F8F;
+  color: #7c8f8f;
 }
 
 .btn {
@@ -268,12 +265,12 @@ button:hover {
   padding: 7px 9px 3px 8px;
   border: none;
   border-radius: 12px;
-  background-color: #2B3939;
+  background-color: #2b3939;
   font-family: 'League Spartan';
   font-size: 14px;
   font-weight: 700;
   line-height: 14px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
@@ -290,62 +287,71 @@ button:hover {
   justify-content: space-between;
   padding: 5px 10px 3px 9px;
   border: none;
-  background-color: #EFF6F6;
+  background-color: #eff6f6;
   border-radius: 4px;
   font-family: 'League Spartan';
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
-  color: #5CA5A5;
+  color: #5ca5a5;
 }
 
 .skills-two-btn {
   padding: 5px 9px 3px 9px;
   border: none;
   border-radius: 4px;
-  background-color: #EFF6F6;
+  background-color: #eff6f6;
   font-family: 'League Spartan';
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
-  color: #5CA5A5;
-
+  color: #5ca5a5;
 }
 
 .skills-three-btn {
   padding: 5px 5px 3px 6px;
   border: none;
   border-radius: 4px;
-  background-color: #EFF6F6;
+  background-color: #eff6f6;
   font-family: 'League Spartan';
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
-  color: #5CA5A5;
-
+  color: #5ca5a5;
 }
 
 .skills-four-btn {
   padding: 5px 7px 3px 9px;
   border: none;
   border-radius: 4px;
-  background-color: #EFF6F6;
+  background-color: #eff6f6;
   font-family: 'League Spartan';
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
-  color: #5CA5A5;
+  color: #5ca5a5;
 }
 
 .skills-five-btn {
   padding: 5px 8px 3px 9px;
   border: none;
   border-radius: 4px;
-  background-color: #EFF6F6;
+  background-color: #eff6f6;
   font-family: 'League Spartan';
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
-  color: #5CA5A5;
-
+  color: #5ca5a5;
+}
+.delete-bnt {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: 1200px;
+  margin-bottom: 20px;
 }
