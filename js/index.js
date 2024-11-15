@@ -117,9 +117,10 @@ button.addEventListener('click', function (event) {
 });
 
 deletebnt.addEventListener('click', function (event) {
-  let isDelete = confirm('Rostan ham barcha ma`lumotlarni ochirmoqchimisiz?');
+  let isDelete = confirm('Rostan ham barcha ma\'lumotlarni ochirmoqchimisiz?');
 
   if (isDelete) {
+    const fields = document.querySelectorAll('.field');
     const checkboxes = document.querySelectorAll('.tag input[type="checkbox"]');
     const time = document.querySelector('#time');
     const typeofwork = document.querySelector('#typeofwork');
