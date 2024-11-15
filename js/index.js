@@ -1,134 +1,70 @@
-const wrapper = document.querySelector('#wrapper');
-const form = document.querySelector('form');
-const fields = document.querySelectorAll('.field');
-const time = document.querySelector('#time');
-const button = document.querySelector('.button');
-const manage = document.querySelector('#manage');
-const fullstack = document.querySelector('#fullstack');
-const checkboxes = document.querySelectorAll('.tag input[type="checkbox"]');
-const location = document.querySelector('#location');
-const card = document.querySelector('.card');
-const typeofwork = document.querySelector('#typeofwork');
-const tagNew = document.querySelector('#tagNew');
-const fromlocation = document.querySelector('.fromlocation');
-const deletebnt = document.querySelector('.delete-bnt');
-const work = document.querySelector('#work');
+// JavaScript to handle form submission and display saved data
 
-checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
-      checkboxes.forEach((cb) => {
-        if (cb !== checkbox) {
-          cb.checked = false;
-        }
-      });
-    }
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('form');
+  const logoInput = document.getElementById('logo');
+  const manageInput = document.getElementById('manage');
+  const fullstackInput = document.getElementById('fullstack');
+  const timeSelect = document.getElementById('time');
+  const workSelect = document.getElementById('work');
+  const locationSelect = document.querySelector('.fromlocation');
+  const savedCards = document.querySelector('.card');
+  const deleteButton = document.querySelector('.delete-bnt');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    saveCard();
   });
-});
 
+  deleteButton.addEventListener('click', () => {
+    localStorage.clear();
+    displaySavedCards();
+  });
 
-function createBlock(data) {
-  return `
-    <div class="card-img">
-      <img src="${data.imageSrc}" alt="Company Image">
-    </div>
-    <div class="card-titles">
-      <h2>${data.companyName}</h2>
-      <div class="card-buttons">
-      <button class="card-first-btn">${data.tagNew}</button>
-        <div class="card-titles-title">
-          <h2>${data.button}</h2>
-        </div>
-        <div class="checkboxs">
-          <ul class="ul">
-            <li>${data.time}</li>
-            <li>${data.work}</li>
-            <li>${data.fromlocation}</li>
-          </ul> 
-          </div>
-          </div>
-          </div>
-          `;
-}
-function validate(field) {
-  const value = field.value.trim();
-
-  if (value.length < 5 || !value.startsWith("https://")) {
-    alert(`${field.name || field.id} Logotip URL manzili hato. URL manzil "https://" bilan boshlanishi kerak.`);
-    return false;
-  }
-
-  return true;
-}
-
-
-function getDataFromLocalStorage() {
-  button.addEventListener('click', function (event) {
-    event.preventDefault();
-    let isValid = true;
-
-    fields.forEach(function (field) {
-      if (!validate(field)) {
-        isValid = false;
-      }
-    });
-
-    if (manage.value.trim().length < 5) {
-      alert('Kompaniya nomi xato');
-      isValid = false;
-    }
-    if (fullstack.value.trim().length < 5) {
-      alert('Lavozim xato');
-      isValid = false;
-    }
-
-    if (!isValid) return;
-
-    const data = {
-      imageSrc: 'https://picsum.photos/200',
-      companyName: manage.value,
-      tagNew: tagNew.value,
-      button: fullstack.value,
-      time: time.value,
-      work: work.value,
-      fromlocation: fromlocation.value,
+  function saveCard() {
+    const card = {
+      logo: logoInput.value,
+      manage: manageInput.value,
+      fullstack: fullstackInput.value,
+      time: timeSelect.value,
+      work: workSelect.value,
+      location: locationSelect.value,
     };
 
-    const dataFromLocalStorage = getDataFromLocalStorage();
-    dataFromLocalStorage.push(data);
-    localStorage.setItem('datas', JSON.stringify(dataFromLocalStorage));
-
-    const blockHTML = createBlock(data);
-    card.insertAdjacentHTML('beforeend', blockHTML);
-
-    resetForm();
-  });
-  return JSON.parse(localStorage.getItem('datas')) || [];
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  const savedData = getDataFromLocalStorage();
-  savedData.forEach(function (data) {
-    const blockHTML = createBlock(data);
-    card.innerHTML += blockHTML;
-  });
-});
-
-
-
-function resetForm() {
-  fields.forEach((field) => (field.value = ''));
-  checkboxes.forEach((checkbox) => (checkbox.checked = false));
-  time.value = 'Tanlang';
-  typeofwork.value = 'Tanlang';
-  fromlocation.value = 'Tanlang';
-}
-
-deletebnt.addEventListener('click', function (event) {
-  let isDelete = confirm("Rostan ham barcha ma'lumotlarni ochirmoqchimisiz?");
-  if (isDelete) {
-    resetForm();
-    localStorage.removeItem('datas');
-    card.innerHTML = '';
+    localStorage.setItem('card', JSON.stringify(card));
+    displaySavedCards();
   }
+  if (manage.value.trim().length < 5) {
+    alert('Kompaniya nomi xato');
+    isValid = false;
+  }
+  if (fullstack.value.trim().length < 5) {
+    alert('Lavozim xato');
+    isValid = false;
+  }
+
+  // If validation fails, do not submit
+  if (!isValid) return;
+
+  function displaySavedCards() {
+    const savedCard = JSON.parse(localStorage.getItem('card'));
+    if (savedCard) {
+      savedCards.innerHTML = `
+        <div class="card-img">
+          <img src="${savedCard.logo}" alt="Logo" />
+        </div>
+        <div class="card-titles">
+          <h2>${savedCard.manage}</h2>
+          <h2>${savedCard.fullstack}</h2>
+          <h2>${savedCard.time}</h2>
+        </div>
+        <div class="btn">
+          <button class="card-first-btn">Saqlash</button>
+        </div>
+      `;
+    }
+  }
+
+  displaySavedCards();
 });
