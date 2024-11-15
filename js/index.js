@@ -10,6 +10,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedCards = document.querySelector('.card');
   const deleteButton = document.querySelector('.delete-bnt');
   const cardbutton = document.querySelector('.card-button');
+  const button = document.querySelector('.button')
+
+  function validate(logo) {
+    if(logo.value.length<4){
+      alert('logo 4 ta belgi')
+      return false
+    }
+    return true
+  }
+  button && button.addEventListener('click', function (event) {
+    event.preventDefault()
+
+    const isValid = validate(logoInput)
+    if(isValid){
+      return 
+    }
+  })
+
+
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -26,20 +45,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  function validate() {
-    if (
-      !logoInput.value ||
-      !manageInput.value ||
-      !fullstackInput.value ||
-      timeSelect.value === 'Tanlang' ||
-      workSelect.value === 'Tanlang' ||
-      locationSelect.value === 'Tanlang'
-    ) {
-      alert("Barcha maydonlarni to'ldirish zarur!");
-      return false;
-    }
-    return true;
-  }
+  // function validate() {
+  //   if (
+  //     !logoInput.value ||
+  //     !manageInput.value ||
+  //     !fullstackInput.value ||
+  //     timeSelect.value === 'Tanlang' ||
+  //     workSelect.value === 'Tanlang' ||
+  //     locationSelect.value === 'Tanlang'
+  //   ) {
+  //     alert("Barcha maydonlarni to'ldirish zarur!");
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
   function saveCard() {
     const skills = [];
