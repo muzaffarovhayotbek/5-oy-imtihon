@@ -11,7 +11,8 @@ const card = document.querySelector('.card');
 const typeofwork = document.querySelector('#typeofwork');
 const tagNew = document.querySelector('#tagNew');
 const fromlocation = document.querySelector('.fromlocation');
-const deletebnt = document.querySelector('.delete-bnt')
+const deletebnt = document.querySelector('.delete-bnt');
+const work = document.querySelector('#work');
 
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', () => {
@@ -25,14 +26,6 @@ checkboxes.forEach((checkbox) => {
   });
 });
 
-export function validate(field) {
-  if (field.value.trim().length < 5) {
-    alert('Logotip URL manzili hato: URL manzil https bilan boshlanadi')
-    return false;
-  }
-  return true;
-}
-
 
 function createBlock(data) {
   return `
@@ -42,7 +35,7 @@ function createBlock(data) {
     <div class="card-titles">
       <h2>${data.companyName}</h2>
       <div class="card-buttons">
-        <button class="card-first-btn">${data.tagNew}</button>
+      <button class="card-first-btn">${data.tagNew}</button>
         <div class="card-titles-title">
           <h2>${data.button}</h2>
         </div>
@@ -52,96 +45,90 @@ function createBlock(data) {
             <li>${data.work}</li>
             <li>${data.fromlocation}</li>
           </ul> 
-        </div>
-  
-      </div>
-    </div>
-  `;
+          </div>
+          </div>
+          </div>
+          `;
+}
+function validate(field) {
+  const value = field.value.trim();
+
+  if (value.length < 5 || !value.startsWith("https://")) {
+    alert(`${field.name || field.id} Logotip URL manzili hato. URL manzil "https://" bilan boshlanishi kerak.`);
+    return false;
+  }
+
+  return true;
 }
 
+
 function getDataFromLocalStorage() {
-  let data = [];
-  if (localStorage.getItem('datas')) {
-    data = JSON.parse(localStorage.getItem('datas'));
-  }
-  return data;
+  button.addEventListener('click', function (event) {
+    event.preventDefault();
+    let isValid = true;
+
+    fields.forEach(function (field) {
+      if (!validate(field)) {
+        isValid = false;
+      }
+    });
+
+    if (manage.value.trim().length < 5) {
+      alert('Kompaniya nomi xato');
+      isValid = false;
+    }
+    if (fullstack.value.trim().length < 5) {
+      alert('Lavozim xato');
+      isValid = false;
+    }
+
+    if (!isValid) return;
+
+    const data = {
+      imageSrc: 'https://picsum.photos/200',
+      companyName: manage.value,
+      tagNew: tagNew.value,
+      button: fullstack.value,
+      time: time.value,
+      work: work.value,
+      fromlocation: fromlocation.value,
+    };
+
+    const dataFromLocalStorage = getDataFromLocalStorage();
+    dataFromLocalStorage.push(data);
+    localStorage.setItem('datas', JSON.stringify(dataFromLocalStorage));
+
+    const blockHTML = createBlock(data);
+    card.insertAdjacentHTML('beforeend', blockHTML);
+
+    resetForm();
+  });
+  return JSON.parse(localStorage.getItem('datas')) || [];
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   const savedData = getDataFromLocalStorage();
-  card.innerHTML = '';  // cardni tozalash
   savedData.forEach(function (data) {
     const blockHTML = createBlock(data);
     card.innerHTML += blockHTML;
   });
 });
 
-button.addEventListener('click', function (event) {
-  event.preventDefault();
 
-  let isValid = true;
 
-  fields.forEach(function (field) {
-    if (!validate(field)) {
-      isValid = false;
-    }
-  });
-
-  if (manage.value.trim().length < 5) {
-    alert('Kompaniya nomi xato');
-    isValid = false;
-  }
-  if (fullstack.value.trim().length < 5) {
-    alert('Lavozim hato');
-    isValid = false;
-  }
-
-  if (!isValid) return;
-
-  const work = typeofwork;
-  const data = {
-    imageSrc: 'https://picsum.photos/200',
-    companyName: manage.value,
-    tagNew: tagNew.value,
-    button: fullstack.value,
-    time: time.value,
-    work: work.value,
-    fromlocation: fromlocation.value,
-  };
-
-  const dataFromLocalStorage = getDataFromLocalStorage();
-  dataFromLocalStorage.push(data);
-  localStorage.setItem('datas', JSON.stringify(dataFromLocalStorage));
-
-  const blockHTML = createBlock(data);
-  card.innerHTML += blockHTML;
-});
+function resetForm() {
+  fields.forEach((field) => (field.value = ''));
+  checkboxes.forEach((checkbox) => (checkbox.checked = false));
+  time.value = 'Tanlang';
+  typeofwork.value = 'Tanlang';
+  fromlocation.value = 'Tanlang';
+}
 
 deletebnt.addEventListener('click', function (event) {
-  let isDelete = confirm('Rostan ham barcha ma\'lumotlarni ochirmoqchimisiz?');
-
+  let isDelete = confirm("Rostan ham barcha ma'lumotlarni ochirmoqchimisiz?");
   if (isDelete) {
-    const fields = document.querySelectorAll('.field');
-    const checkboxes = document.querySelectorAll('.tag input[type="checkbox"]');
-    const time = document.querySelector('#time');
-    const typeofwork = document.querySelector('#typeofwork');
-    const fromlocation = document.querySelector('.fromlocation');
-
-    fields.forEach(function (field) {
-      field.value = '';
-    });
-    checkboxes.forEach(function (checkbox) {
-      checkbox.checked = false;
-    });
-    time.value = 'Tanlang';
-    typeofwork.value = 'Tanlang';
-    fromlocation.value = 'Tanlang';
-
-    const card = document.querySelector('.card');
-    card.innerHTML = '';
-
+    resetForm();
     localStorage.removeItem('datas');
+    card.innerHTML = '';
   }
 });
-
-
