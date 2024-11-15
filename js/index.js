@@ -43,8 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('Lavozim xato');
     isValid = false;
   }
+  deleteButton.addEventListener('click', () => {
+    console.log("Delete button clicked");  // Check if the button is clicked
+    localStorage.clear();
+    console.log("LocalStorage cleared");  // Check if localStorage is cleared
+    displaySavedCards();
+  });
 
-  // If validation fails, do not submit
   if (!isValid) return;
 
   function displaySavedCards() {
