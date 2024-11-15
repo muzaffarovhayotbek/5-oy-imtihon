@@ -8,19 +8,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const timeSelect = document.getElementById('time');
   const workSelect = document.getElementById('work');
   const locationSelect = document.querySelector('.fromlocation');
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   const savedCards = document.querySelector('.card');
   const deleteButton = document.querySelector('.delete-bnt');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    saveCard();
+    if (validate()) {
+      saveCard();
+    }
   });
 
   deleteButton.addEventListener('click', () => {
-    localStorage.clear();
-    displaySavedCards();
+    if (confirm('Hamma ma\'lumotlarni o\'chirishni istaysizmi?')) {
+      localStorage.clear();
+      displaySavedCards();
+    }
   });
+  
+
+  function validate() {
+    if (!logoInput.value || !manageInput.value || !fullstackInput.value || timeSelect.value === "Tanlang" || workSelect.value === "Tanlang" || locationSelect.value === "Tanlang") {
+      alert('Barcha maydonlarni to\'ldirish zarur!');
+      return false;
+    }
+    return true;
+  }
 
   function saveCard() {
     const card = {
@@ -35,22 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('card', JSON.stringify(card));
     displaySavedCards();
   }
-  if (manage.value.trim().length < 5) {
-    alert('Kompaniya nomi xato');
-    isValid = false;
-  }
-  if (fullstack.value.trim().length < 5) {
-    alert('Lavozim xato');
-    isValid = false;
-  }
-  deleteButton.addEventListener('click', () => {
-    console.log("Delete button clicked");  // Check if the button is clicked
-    localStorage.clear();
-    console.log("LocalStorage cleared");  // Check if localStorage is cleared
-    displaySavedCards();
-  });
-
-  if (!isValid) return;
 
   function displaySavedCards() {
     const savedCard = JSON.parse(localStorage.getItem('card'));
